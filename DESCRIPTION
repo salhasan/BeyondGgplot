@@ -1,0 +1,15 @@
+Package: beyondggplot
+Type: Package
+Title: plotting
+Version: 1.0
+Author: person("Sadiq", "Alhasan", email = "sa42@hood.edu",
+                  role = c("aut", "cre"))
+Maintainer: The package maintainer <sa42@hood.edu>
+Description: plot data
+License: GPL
+Encoding: UTF-8
+LazyData: true
+Import: ggplot2
+Suggests: knitr, rmarkdown
+VignetteBuilder: knitr
+RoxygenNote: 6.1.1

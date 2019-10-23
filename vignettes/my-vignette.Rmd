@@ -1,0 +1,86 @@
+---
+title: "Plotting a Selected Column with All Possible Columns of a Data Frame"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{my-vignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+
+
+# Abstract
+
+A function `plot_all` that creates many scatter plots with same attribute on every plot on the x-axis and a different attribute for every plot on the y-axis. `mtcars` dataset is used to visually illustrate how to use the function in different ways. 
+
+
+
+```{r, include = FALSE}
+knitr::opts_chunk$set( fig.width=6,
+                       fig.height=6,
+                       fig.align = "center"
+)
+```
+
+```{r setup}
+library(ggplot2)
+library(BeyondGgplot)
+```
+
+```{r}
+# displaying the top values in mtcars
+
+head(mtcars)
+
+```
+
+
+```{r }
+#looking at the structure of mtcars
+
+str(mtcars)
+
+```
+
+```{r }
+# converting gears to a factor
+
+mtcars$gear <- as.factor(mtcars$gear)
+
+# converting cyl to a factor
+
+mtcars$cyl <- as.factor(mtcars$cyl)
+
+#looking at the new structure of mtcars
+
+str(mtcars)
+```
+
+#
+
+```{r}
+# the simplest way to use plot_all with 
+# first argument for datafram 
+# second argument "col_x" for the attribute on the x-axis
+
+plot_all(mtcars, col_x = "mpg")
+```
+
+
+```{r}
+# a third argument "col_color" for the attribute determining the color of data point
+
+plot_all(mtcars, col_x = "mpg", col_color = "cyl")
+```
+
+
+```{r}
+# a fourth argument "col_shape" for the attribute determining the shape of data point
+plot_all(mtcars, col_x = "mpg", col_color = "cyl", col_shape = "gear")
+```
+
+``` {r}
+# a fifth argument "col_size" for the attribute determining the size of data point
+plot_all(mtcars, col_x = "mpg", col_color = "cyl", col_shape = "gear", col_size = "wt")
+
+```
