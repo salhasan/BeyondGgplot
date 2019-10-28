@@ -6,25 +6,27 @@ vignette: >
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
-
-
-
-# Abstract
-
-A function `plot_all` that creates many scatter plots with same attribute on every plot on the x-axis and a different attribute for every plot on the y-axis. `mtcars` dataset is used to visually illustrate how to use the function in different ways. 
+  
+  
+  
+# Scatter Plot All
+  
+  A function `scatter_plot_all` that creates many scatter plots with same attribute on every plot on the x-axis and a different attribute for every plot on the y-axis. `mtcars` dataset is used to visually illustrate how to use the function in different ways. 
 
 
 
 ```{r, include = FALSE}
-knitr::opts_chunk$set( fig.width=6,
+knitr::opts_chunk$set( echo = TRUE,
+                       fig.width=6,
                        fig.height=6,
                        fig.align = "center"
 )
 ```
 
-```{r setup}
+```{r setup, include=FALSE}
+library(tidyverse)
 library(ggplot2)
-library(BeyondGgplot)
+library(beyondggplot)
 ```
 
 ```{r}
@@ -56,31 +58,49 @@ mtcars$cyl <- as.factor(mtcars$cyl)
 str(mtcars)
 ```
 
-#
 
-```{r}
+```{r, eval=TRUE}
 # the simplest way to use plot_all with 
-# first argument for datafram 
+# first argument is for the datafram 
 # second argument "col_x" for the attribute on the x-axis
 
-plot_all(mtcars, col_x = "mpg")
+scatter_plot_all(mtcars, col_x = "mpg")
 ```
 
 
 ```{r}
 # a third argument "col_color" for the attribute determining the color of data point
 
-plot_all(mtcars, col_x = "mpg", col_color = "cyl")
+scatter_plot_all(mtcars, col_x = "mpg", col_color = "cyl")
 ```
 
 
 ```{r}
 # a fourth argument "col_shape" for the attribute determining the shape of data point
-plot_all(mtcars, col_x = "mpg", col_color = "cyl", col_shape = "gear")
+scatter_plot_all(mtcars, col_x = "mpg", col_color = "cyl", col_shape = "gear")
 ```
 
 ``` {r}
 # a fifth argument "col_size" for the attribute determining the size of data point
-plot_all(mtcars, col_x = "mpg", col_color = "cyl", col_shape = "gear", col_size = "wt")
+scatter_plot_all(mtcars, col_x = "mpg", col_color = "cyl", col_shape = "gear", col_size = "wt")
 
 ```
+
+# Hex Plot All
+
+A function `hex_plot_all` that creates many hax plots with same attribute on every plot on the x-axis and a different attribute for every plot on the y-axis. `iris` dataset is used to visually illustrate how to use the function in different ways. 
+
+```{r, eval=TRUE}
+# the simplest way to use hex_plot_all with 
+# first argument for the datafram 
+# second argument "col_x" for the attribute on the x-axis
+
+hex_plot_all(iris, col_x = "Sepal.Length")
+```
+
+```{r}
+# a third argument "col_color" for the attribute determining the fill color of data point
+
+hex_plot_all(iris, col_x = "Sepal.Length", col_fill = "Species")
+```
+

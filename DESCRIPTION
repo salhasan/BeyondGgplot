@@ -5,11 +5,12 @@ Version: 1.0
 Author: person("Sadiq", "Alhasan", email = "sa42@hood.edu",
                   role = c("aut", "cre"))
 Maintainer: The package maintainer <sa42@hood.edu>
-Description: plot data
+Description: generate the same attribute on every plot on the x-axis with a different 
+            attribute for every plot on the y-axis.
 License: GPL
 Encoding: UTF-8
 LazyData: true
-Import: ggplot2
+Import: ggplot2, tidyverse
 Suggests: knitr, rmarkdown
 VignetteBuilder: knitr
 RoxygenNote: 6.1.1
